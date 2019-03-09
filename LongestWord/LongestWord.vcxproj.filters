@@ -18,12 +18,21 @@
     <ClInclude Include="Input.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Words.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Graph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Input.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Wordlist.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Words.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

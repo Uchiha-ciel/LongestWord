@@ -115,11 +115,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Graph.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="Words.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Wordlist.cpp" />
+    <ClCompile Include="Words.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

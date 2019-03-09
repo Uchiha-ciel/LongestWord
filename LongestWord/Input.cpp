@@ -11,13 +11,13 @@ Input::Input()
 	is_r = false;
 }
 
-void Input::getPara(string in)
+void Input::spilt()
 {
-	//char cmdInput[1000];
-	//cin.getline(cmdInput, 1000);
-	//string in = string(cmdInput);
+	char cmdInput[1000];
+	cin.getline(cmdInput, 1000);
+	string in = string(cmdInput);
 
-	cout << "sscs";
+	//cout << in << endl;
 	int i = 0;
 	while (i < in.size())
 	{
@@ -34,20 +34,12 @@ void Input::getPara(string in)
 			}
 			else if (in.at(i) == 'h')
 			{
-				i+=2;
-				//headChar = in.at(i);
-				cout << i << endl;
-				i++;
+				i += 2;
+				headChar = in.at(i);
 			}
 			else if (in.at(i) == 't')
 			{
-				i++;
-				if (in.at(i) == ' ')
-					i++;
-				else
-				{
-
-				}
+				i += 2;
 				tailChar = in.at(i);
 			}
 			else if (in.at(i) == 'r')

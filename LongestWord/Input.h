@@ -17,7 +17,7 @@ private:
 	string filePath;
 public:
 	Input();
-	void getPara(string in);
+	void spilt();
 	string getPath();
 	bool getWpara();
 	bool getCpara();

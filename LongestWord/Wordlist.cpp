@@ -3,13 +3,14 @@
 #include <string>
 #include <vector>
 #include "Input.h"
+#include "Words.h"
 
 int main()
 {
 	Input* input = new Input();
-	string cmd;
-	cin >> cmd;
-	input->getPara(cmd);
+	input->spilt();
+	Words* wordList = new Words();
+	wordList->saveWord(input->getPath());
 	/*
 	cout << "w" << input->getWpara() << endl;
 	cout << "r" << input->getRpara() << endl;
