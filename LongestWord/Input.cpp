@@ -11,7 +11,7 @@ Input::Input()
 	is_r = false;
 }
 
-void Input::spilt()
+void Input::spilt(char **argv)
 {
 	char cmdInput[1000];
 	cin.getline(cmdInput, 1000);

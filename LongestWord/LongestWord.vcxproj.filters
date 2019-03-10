@@ -21,7 +21,7 @@
     <ClInclude Include="Words.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Graph.h">
+    <ClInclude Include="Node.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -33,6 +33,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Words.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

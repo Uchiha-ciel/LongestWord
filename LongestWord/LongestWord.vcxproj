@@ -76,6 +76,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -115,12 +116,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Graph.h" />
+    <ClInclude Include="Node.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Words.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="Node.cpp" />
     <ClCompile Include="Wordlist.cpp" />
     <ClCompile Include="Words.cpp" />
   </ItemGroup>

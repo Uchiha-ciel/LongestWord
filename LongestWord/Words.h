@@ -9,8 +9,9 @@ using namespace std;
 class Words
 {
 public:
-	char* words[100000];
+	char words[100000][100];
 	int listSize;
 	Words();
 	void saveWord(string filePath);
+	//void hhh(char* words[]);
 };
