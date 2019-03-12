@@ -17,7 +17,7 @@ Words::Words()
 void Words::saveWord(string filePath)
 {
 	char buffer[256];
-	char word[100];
+	//char word[100];
 	ifstream in(filePath);
 	if (!in.is_open())
 	{
@@ -34,8 +34,7 @@ void Words::saveWord(string filePath)
 		while (i < line.size())
 		{
 			while (!isalpha(line.at(i)) && j == 0)
-			
-	i++;
+				i++;
 			if (!isalpha(line.at(i)))
 			{
 				//word[j] = '\0';
@@ -75,13 +74,3 @@ void Words::saveWord(string filePath)
 		}
 	}
 }
-
-/*
-void Words::hhh(char* words[])
-{
-	for (int i = 0; i < listSize; i++)
-	{
-		cout << words[i] << endl;
-	}
-}
-*/

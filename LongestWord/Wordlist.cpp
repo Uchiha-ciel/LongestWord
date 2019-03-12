@@ -2,12 +2,14 @@
 #include <string>
 #include "Input.h"
 #include "Words.h"
-#include "Node.h"
+#include "Common.h"
 
 int main(int argc, char * argv[])
 {
 	int i = 0;
+	int numOfChain = 0;
 	char* tempWords[100000];
+	char* longestWordChain[100000] = { 0 };
 	Input* input = new Input();
 	input->spilt(argv);
 	Words* wordList = new Words();
@@ -16,22 +18,21 @@ int main(int argc, char * argv[])
 	{
 		tempWords[i] = wordList->words[i];
 	}
-	//wordList->hhh(tempWords);
-	//node的对象数组
-	Node* node = new Node[100000];
-	for (i = 0; i < wordList->listSize; i++)
+	if (input->getWpara)
 	{
-		cout << wordList->listSize << endl;
-		cout << wordList->words[i] << endl;
-		node[i].formNode(wordList->words[i]);
+		numOfChain = gen_chain_word(tempWords, wordList->listSize, longestWordChain, input->getHeadChar, input->getTailChar, input->getRpara);
+		for (i = 0; i < numOfChain; i++)
+		{
+			cout << longestWordChain[i] << endl;
+		}
 	}
-	/*
-	cout << "w" << input->getWpara() << endl;
-	cout << "r" << input->getRpara() << endl;
-	cout << "c" << input->getCpara() << endl;
-	cout << "h" << input->getHeadChar() << endl;
-	cout << "t" << input->getTailChar()<< endl;
-	cout << input->getPath() << endl;
-	*/
+	else if (input->getCpara)
+	{
+		numOfChain = gen_chain_char(tempWords, wordList->listSize, longestWordChain, input->getHeadChar, input->getTailChar, input->getRpara);
+		for (i = 0; i < numOfChain; i++)
+		{
+			cout << longestWordChain[i] << endl;
+		}
+	}
 	getchar();
 }

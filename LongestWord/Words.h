@@ -13,5 +13,4 @@ public:
 	int listSize;
 	Words();
 	void saveWord(string filePath);
-	//void hhh(char* words[]);
 };
