@@ -11,18 +11,44 @@ Input::Input()
 	is_r = false;
 }
 
-void Input::spilt(char **argv)
+void Input::spilt(int npara,vector<string> para)
 {
+	/*
 	char cmdInput[1000];
 	cin.getline(cmdInput, 1000);
 	string in = string(cmdInput);
+	*/
 
 	//cout << in << endl;
-	int i = 0;
-	while (i < in.size())
+	int i;
+	for ( i = 0; i < npara - 1; i++)
 	{
-		if (in.at(i) == '-')
+		if (para[i] == "-w")
 		{
+			is_w = true;
+		}
+		if (para[i] == "-c")
+		{
+			is_c = true;
+		}
+		if (para[i] == "-h")
+		{
+			headChar = para[++i][0];
+		}
+		if (para[i] == "-t")
+		{
+			tailChar = para[++i][0];
+		}
+		if (para[i] == "-r")
+		{
+			is_r = true;
+		}
+		else 
+		{
+			printf("para error");
+			exit(1);
+		}
+	}/*
 			i++;
 			if (in.at(i) == 'w')
 			{
@@ -56,8 +82,8 @@ void Input::spilt(char **argv)
 			break;
 		}
 		i++;
-	}
-	filePath = in.substr(i, in.size());
+	*/
+	filePath = para[i];
 }
 
 string Input::getPath()

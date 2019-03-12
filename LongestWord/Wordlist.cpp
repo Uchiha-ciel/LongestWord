@@ -6,13 +6,18 @@
 
 int main(int argc, char * argv[])
 {
+	vector<string> para;
 	int i = 0;
 	int numOfChain = 0;
 	char* tempWords[100000];
 	char* longestWordChain[100000] = { 0 };
 	Input* input = new Input();
-	input->spilt(argv);
 	Words* wordList = new Words();
+	for (i = 0; i < argc; i++)
+	{
+		para.push_back(argv[i]);
+	}
+	input->spilt(argc, para);
 	wordList->saveWord(input->getPath());
 	for (i = 0; i < wordList->listSize; i++)
 	{
