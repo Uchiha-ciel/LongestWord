@@ -18,10 +18,10 @@ private:
 public:
 	Input();
 	void spilt(int npara,vector<string> para);
-	string getPath();
-	bool getWpara();
-	bool getCpara();
-	char getHeadChar();
-	char getTailChar();
-	bool getRpara();
+	string getPath() { return filePath; }
+	bool getWpara() { return is_w; }
+	bool getCpara() { return is_c; }
+	char getHeadChar() { return headChar; }
+	char getTailChar() { return tailChar; }
+	bool getRpara() { return is_r; }
 };

@@ -9,7 +9,7 @@ using namespace std;
 class Words
 {
 public:
-	char words[100000][100];
+	char words[20000][100];
 	int listSize;
 	Words();
 	void saveWord(string filePath);
