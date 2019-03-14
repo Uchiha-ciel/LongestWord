@@ -17,7 +17,7 @@ void Input::spilt(int npara,vector<string> para)
 {
 	int i;
 	int flag = 0;
-	for (i = 0; i < npara - 1; i++)
+	for (i = 1; i < npara - 1; i++)
 	{
 		if (para[i] == "LongestWord.exe");
 		else if (para[i] == "-w")

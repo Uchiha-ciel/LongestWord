@@ -1,15 +1,16 @@
+#include "stdafx.h"
 #include <iostream>
 #include <string>
 #include <vector>
 #include <cctype>
 #include "Input.h"
 #include "Words.h"
-#include "Node.h"
-#include "core.h"
+#include "node.h"
+#include "core0.h"
 
 using namespace std;
 
-Core::Core(int if_c)
+core0::core0(int if_c)
 {
 	_if_c = if_c;
 	topSortArray[26] = { 0 };
@@ -18,7 +19,7 @@ Core::Core(int if_c)
 	sameHeadNode = new vector<Node*>[26];      //26个vector
 }
 
-void Core::trans2object(char* words[],int len,bool enable_loop)
+void core0::trans2object(char* words[], int len, bool enable_loop)
 {
 	int i;
 	int headNum = -1;
@@ -33,7 +34,7 @@ void Core::trans2object(char* words[],int len,bool enable_loop)
 		{
 			for (int j = 0; j < sameHeadNode[headNum].size(); j++)
 			{
-				if (strcmp(object->word,sameHeadNode[headNum][j]->word) == 0) {
+				if (strcmp(object->word, sameHeadNode[headNum][j]->word) == 0) {
 					ifSameWord = true;
 				}
 			}
@@ -74,17 +75,17 @@ void Core::trans2object(char* words[],int len,bool enable_loop)
 	}
 }
 
-void Core::topSort()
+void core0::topSort()
 {
-	int i,j;
+	int i, j;
 	int sortedIndex = 0;
 	int removed[26] = { 0 };
 	int noZero = 1;
-	while(sortedIndex < 26)
+	while (sortedIndex < 26)
 	{
 		for (i = 0; i < 26; i++)
 		{
-			if (InDegreeNum[i] == 0 && removed[i] == 0) 
+			if (InDegreeNum[i] == 0 && removed[i] == 0)
 			{
 				noZero = 0;
 				removed[i] = 1;
@@ -112,7 +113,7 @@ void Core::topSort()
 	}
 }
 
-void Core::getMaxPath(Node* &linkNode,int len)
+void core0::getMaxPath(Node* &linkNode, int len)
 {
 	int i, j;
 	int length = 0;
@@ -161,7 +162,7 @@ void Core::getMaxPath(Node* &linkNode,int len)
 	}
 }
 
-int Core::gen_chain(char* words[], int len, char* result[], char head, char tail, bool enable_loop)
+int core0::gen_chain(char* words[], int len, char* result[], char head, char tail, bool enable_loop)
 {
 	int i;
 	int flag = 0;
@@ -169,14 +170,14 @@ int Core::gen_chain(char* words[], int len, char* result[], char head, char tail
 	Node *linkNode = nullptr;
 	vector<Node*> longestPath;
 
-	trans2object(words,len,enable_loop);  // 根据传入的字符指针数组构建相应的对象
+	trans2object(words, len, enable_loop);  // 根据传入的字符指针数组构建相应的对象
 	if (!enable_loop)
 	{
 		topSort();        //拓补排序
 		getMaxPath(linkNode, len);
 		while (linkNode != nullptr)
 		{
-			longestPath.insert(longestPath.begin(),linkNode);
+			longestPath.insert(longestPath.begin(), linkNode);
 			linkNode = linkNode->_linkNode;
 		}
 		for (i = 0; i < longestPath.size(); i++)
@@ -193,14 +194,14 @@ int Core::gen_chain(char* words[], int len, char* result[], char head, char tail
 	return 0;
 }
 
-int Core::gen_chain_word(char* words[], int len, char* result[], char head, char tail, bool enable_loop)     //单词数量最多
+int core0::gen_chain_word(char* words[], int len, char* result[], char head, char tail, bool enable_loop)     //单词数量最多
 {
-	Core newCore = Core(0);
+	core0 newCore = core0(0);
 	return newCore.gen_chain(words, len, result, head, tail, enable_loop);
 }
 
-int Core::gen_chain_char(char* words[], int len, char* result[], char head, char tail, bool enable_loop)      //字母数量最多
+int core0::gen_chain_char(char* words[], int len, char* result[], char head, char tail, bool enable_loop)      //字母数量最多
 {
-	Core newCore = Core(1);
+	core0 newCore = core0(1);
 	return newCore.gen_chain(words, len, result, head, tail, enable_loop);
 }
