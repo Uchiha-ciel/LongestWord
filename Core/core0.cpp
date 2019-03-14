@@ -4,7 +4,6 @@
 #include <vector>
 #include <cctype>
 #include "Input.h"
-#include "Words.h"
 #include "node.h"
 #include "core0.h"
 
@@ -32,7 +31,7 @@ void core0::trans2object(char* words[], int len, bool enable_loop)
 		tailNum = object->getTail() - 'a';
 		if (headNum == tailNum)
 		{
-			for (int j = 0; j < sameHeadNode[headNum].size(); j++)
+			for (int j = 0; j < int(sameHeadNode[headNum].size()); j++)
 			{
 				if (strcmp(object->word, sameHeadNode[headNum][j]->word) == 0) {
 					ifSameWord = true;
@@ -43,7 +42,7 @@ void core0::trans2object(char* words[], int len, bool enable_loop)
 			{
 				if (!enable_loop && isExistEdge[headNum][tailNum] > 0)
 				{
-					cout << "输入文件有环" << endl;
+					cout << "have cycle" << endl;
 					exit(1);
 				}
 				else
@@ -58,7 +57,7 @@ void core0::trans2object(char* words[], int len, bool enable_loop)
 			sameHeadNode[headNum].push_back(object);                                 //结点放入相应的vector
 			if (!enable_loop && isExistEdge[headNum][tailNum] < 0)
 			{
-				cout << "输入文件有环" << endl;
+				cout << "have cycle" << endl;
 				exit(1);
 
 			}
@@ -100,13 +99,13 @@ void core0::topSort()
 		}
 		if (noZero)
 		{
-			cout << "输入文件有环" << endl;
+			cout << "have cycle" << endl;
 			exit(1);
 		}
 	}
 	for (i = 0; i < 26; i++)
 	{
-		for (j = 0; j < sameHeadNode[topSortArray[i]].size(); j++)
+		for (j = 0; j < int(sameHeadNode[topSortArray[i]].size()); j++)
 		{
 			topo.push_back(sameHeadNode[topSortArray[i]][j]);
 		}
@@ -165,8 +164,8 @@ void core0::getMaxPath(Node* &linkNode, int len)
 int core0::gen_chain(char* words[], int len, char* result[], char head, char tail, bool enable_loop)
 {
 	int i;
-	int flag = 0;
-	int lengthNow = 0;
+	
+
 	Node *linkNode = nullptr;
 	vector<Node*> longestPath;
 
@@ -180,7 +179,7 @@ int core0::gen_chain(char* words[], int len, char* result[], char head, char tai
 			longestPath.insert(longestPath.begin(), linkNode);
 			linkNode = linkNode->_linkNode;
 		}
-		for (i = 0; i < longestPath.size(); i++)
+		for (i = 0; i < int(longestPath.size()); i++)
 		{
 			result[i] = longestPath[i]->word;
 		}
@@ -188,10 +187,9 @@ int core0::gen_chain(char* words[], int len, char* result[], char head, char tai
 	}
 	else
 	{
-		cout << "有环情况求最长链。。。。" << endl;
+		cout << "have cycle" << endl;
 		exit(1);
 	}
-	return 0;
 }
 
 int core0::gen_chain_word(char* words[], int len, char* result[], char head, char tail, bool enable_loop)     //单词数量最多

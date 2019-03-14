@@ -8,12 +8,50 @@
 #include "Words.h"
 #include "core.h"
 
-int main(int argc, char * argv[])
+bool Compare(char * a[], int alen, char * b[], int blen)
 {
+	int cnt;
+	if (alen != blen)
+		return false;
+	for (cnt = 0; cnt < alen; cnt++)
+	{
+		if (strcmp(a[cnt], b[cnt]) != 0)
+			return false;
+	}
+	return true;
+}
+/**
+ * \brief 
+ * \param argc 
+ * \param argv 
+ * \return 
+ */
+int main(int argc, char* argv[])
+{
+	/*
+	char element1[] = "cd";
+	char element2[] = "de";
+	char element3[] = "ef";
+	char element4[] = "drrrrrrrrrrr";
+	char element5[] = "ada";
+	char element6[] = "aba";
+	char* test[] = { element1,element2,element3,element4,element5 };
+	char* test_[] = { element1,element2,element3,element4,element5,element6 };
+	char* anschar[] = { element5,element1,element4 };
+	char* answord[] = { element5,element1,element2,element3 };
+	char** reschar = new char*[10];
+	char** resword = new char*[10];
+	int res_word = Core::gen_chain_word(test, 5, resword, '\0', '\0', false);
+	int res_char = Core::gen_chain_char(test, 5, reschar, '\0', '\0', false);
+	Compare(reschar, res_char, anschar, 3);
+	Compare(resword, res_word, answord, 4);
+	int res_char_ = Core::gen_chain_char(test_, 6, reschar, '\0', '\0', false);
+	*/
+
 	ofstream fout;
 	fout.open("solution.txt");
 	vector<string> para;                       //命令行参数
-	int i = 0;
+	auto i = 0;
 	int numOfChain = 0;                        //返回的单词链长度
 	char* tempWords[20000];                   //用于实现接口
 	char* longestWordChain[20000] = { 0 };    //保存结果
@@ -133,6 +171,7 @@ int main(int argc, char * argv[])
 	}
 	fout.close();
 	return 0;
+	
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单

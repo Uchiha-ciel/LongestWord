@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
-#include "Common.h"
-#include "node.h"
+#include "Node.h"
 
 using namespace std;
 

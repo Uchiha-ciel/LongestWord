@@ -1,10 +1,13 @@
 #include "stdafx.h"
-#include <iostream>
 #include <string>
 #include "Node.h"
 
 using namespace std;
 
+/**
+ * \brief 
+ * \param inputWord 
+ */
 Node::Node(char inputWord[])
 {
 	strcpy_s(word, inputWord);

@@ -11,7 +11,7 @@ using namespace std;
 Words::Words()
 {
 	listSize = 0;
-	//words[100000] = { 0 };
+	words[20000][100] = { 0 };
 }
 
 void Words::saveWord(string filePath)
@@ -29,7 +29,7 @@ void Words::saveWord(string filePath)
 		string line = string(buffer);
 		int i = 0;
 		int j = 0;
-		while (i < line.size())
+		while (i < int(line.size()))
 		{
 			while (!isalpha(line.at(i)) && j == 0)
 				i++;
@@ -43,12 +43,11 @@ void Words::saveWord(string filePath)
 				continue;
 			}
 			words[listSize][j] = line.at(i);
-			if (i == line.size() - 1 && isalpha(line.at(i)))
+			if (i == int(line.size() - 1) && isalpha(line.at(i)))
 			{
 				words[listSize][j + 1] = '\0';
 				//cout << words[listSize] << endl;
 				listSize++;
-				j = 0;
 				break;
 			}
 			i++;

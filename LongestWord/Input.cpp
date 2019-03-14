@@ -1,5 +1,6 @@
 #include "Input.h"
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -19,8 +20,8 @@ void Input::spilt(int npara,vector<string> para)
 	int flag = 0;
 	for (i = 1; i < npara - 1; i++)
 	{
-		if (para[i] == "LongestWord.exe");
-		else if (para[i] == "-w")
+		
+		if (para[i] == "-w")
 		{
 			if(flag == 0)
 				is_w = true;
